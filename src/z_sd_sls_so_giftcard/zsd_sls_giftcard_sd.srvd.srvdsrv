@@ -1,0 +1,4 @@
+@EndUserText.label: 'Gift Card'
+define service ZSD_SLS_GIFTCARD_SD {
+  expose ZSD_SLS_C_GIFTCARDTP;
+}

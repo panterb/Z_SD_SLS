@@ -1,0 +1,10 @@
+extension for projection;
+
+extend behavior for SalesOrder
+{
+  use action zz_use_gift_card;
+//  side effects {
+//    action zz_use_gift_card affects entity _Item;
+//  }
+
+}

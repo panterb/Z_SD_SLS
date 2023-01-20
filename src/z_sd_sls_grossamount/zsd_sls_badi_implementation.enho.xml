@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_ENHO" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <TOOL>BADI_IMPL</TOOL>
+   <SHORTTEXT>BAdI Implementations for Sales Documents</SHORTTEXT>
+   <SPOT_NAME>ES_SD_SLS_EXTEND</SPOT_NAME>
+   <IMPL>
+    <ENH_BADI_IMPL_DATA>
+     <SPOT_NAME>ES_SD_SLS_EXTEND</SPOT_NAME>
+     <BADI_NAME>SD_SLS_MODIFY_HEAD</BADI_NAME>
+     <IMPL_NAME>SALESHEADMODIFICATION</IMPL_NAME>
+     <IMPL_CLASS>ZCL_SD_SLS_MODIFY_HEAD</IMPL_CLASS>
+     <ACTIVE>X</ACTIVE>
+     <LOCKED_IN_CUSTOMIZING>X</LOCKED_IN_CUSTOMIZING>
+    </ENH_BADI_IMPL_DATA>
+   </IMPL>
+  </asx:values>
+ </asx:abap>
+</abapGit>

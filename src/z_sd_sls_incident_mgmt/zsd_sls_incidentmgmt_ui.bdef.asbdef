@@ -1,0 +1,7 @@
+extension for projection;
+
+extend behavior for SalesOrder
+{
+  use action zz_review_order;
+  field (suppress ) zz_dummy_sdh;
+}

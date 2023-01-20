@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition forZSD_SLS_C_GWITEMTP'
+define service ZSD_SLS_GWITEM_SD {
+  expose ZSD_SLS_C_GWITEMTP as GoodwillItem;
+}

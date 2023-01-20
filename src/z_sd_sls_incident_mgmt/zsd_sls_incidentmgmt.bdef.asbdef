@@ -1,0 +1,11 @@
+extension using interface i_salesordertp
+implementation in class zbp_sd_sls_incidentmgmt unique;
+
+extend behavior for SalesOrder
+{
+  action ( features : instance, authorization : update) zz_review_order result [0..1] $self;
+
+  side effects {
+    action zz_review_order affects field *, field _Item.*, entity _PricingElement, entity _Text;
+  }
+}

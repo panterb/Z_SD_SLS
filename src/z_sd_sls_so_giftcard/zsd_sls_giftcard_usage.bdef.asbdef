@@ -1,0 +1,17 @@
+extension using interface i_salesordertp
+implementation in class zbp_sd_sls_giftcard_usage unique;
+
+extend behavior for SalesOrder
+{
+
+  action ( authorization : update , features : instance ) zz_use_gift_card
+    parameter ZSD_SLS_ASSIGNGIFTCARDTOSOP result [0..1] $self;
+
+  field(readonly) zz_giftcardamount_sdh, zz_giftcardcurrency_sdh;
+
+  side effects {
+    action zz_use_gift_card affects entity _Item, entity _PricingElement;
+    //action zz_use_gift_card affects field *, entity _Item, entity _PricingElement;
+  }
+
+}

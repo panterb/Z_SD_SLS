@@ -1,0 +1,4 @@
+define service ZUI_PRSRVSURCHRG {
+  expose ZC_PRFRDSRVSURCHRG_S as PreferredServiceAll;
+  expose ZC_PRFRDSRVSURCHRG as PrfrdSrvSurchrg;
+}

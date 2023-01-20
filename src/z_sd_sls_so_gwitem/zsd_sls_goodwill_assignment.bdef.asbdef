@@ -1,0 +1,16 @@
+extension using interface i_salesordertp
+implementation in class zbp_sd_sls_goodwill_assignment unique;
+
+extend behavior for SalesOrder
+{
+
+  action ( authorization : update, features : instance ) zz_add_goodwill_item
+    parameter ZSD_SLS_ADDGOODWILLITEM result [0..1] $self;
+
+  field(readonly) zz_goodwillitemstatus_sdh;
+
+  side effects {
+    action zz_use_gift_card affects entity _Item;
+  }
+
+}

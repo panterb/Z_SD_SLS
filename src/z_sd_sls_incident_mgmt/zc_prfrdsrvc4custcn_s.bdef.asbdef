@@ -1,0 +1,27 @@
+projection;
+strict;
+use draft;
+
+define behavior for ZC_PRFRDSRVC4CUSTCN_S alias PreferredServiceAll
+
+{
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+  use action SelectCustomizingTransptReq;
+
+  use association _PRFRDSRVC4CUSTCN { create; with draft; }
+}
+
+define behavior for ZC_PRFRDSRVC4CUSTCN alias PRFRDSRVC4CUSTCN
+
+{
+  use update;
+  use delete;
+
+  use action CopyPRFRDSRVC4CUSTCN;
+
+  use association _PreferredServiceAll { with draft; }
+}

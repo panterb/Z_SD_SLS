@@ -1,0 +1,54 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'PRFRDSRVC4CUSTCN', 
+    typeNamePlural: 'PRFRDSRVC4CUSTCNs', 
+    title: {
+      type: #STANDARD, 
+      label: 'Preferred Service for Customer Class.', 
+      value: 'Customerclassification'
+    }
+  }
+}
+annotate view ZC_PRFRDSRVC4CUSTCN with
+{
+  @UI.identification: [ {
+    position: 1 , 
+    label: 'Customerclassification'
+  } ]
+  @UI.lineItem: [ {
+    position: 1 , 
+    label: 'Customerclassification'
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'CopyPRFRDSRVC4CUSTCN', 
+    label: 'Copy Selected Entry'
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_PRFRDSRVC4CUSTCN', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Preferred Service for Customer Class.', 
+    position: 1 
+  } ]
+  Customerclassification;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Prfrdsrvc;
+  
+  @UI.identification: [ {
+    position: 3 
+  } ]
+  Lastchangedat;
+  
+  @UI.identification: [ {
+    position: 4 
+  } ]
+  Lastchangedby;
+}

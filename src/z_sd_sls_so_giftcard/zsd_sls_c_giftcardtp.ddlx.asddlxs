@@ -1,0 +1,53 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'GiftCard',
+    typeNamePlural: 'GiftCards'
+  }
+}
+annotate view ZSD_SLS_C_GIFTCARDTP with
+{
+  @UI.facet: [ {
+    id: 'idIdentification',
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'GiftCard',
+    position: 10
+  } ]
+  @UI.hidden: true
+  SapUUID;
+
+  @UI.lineItem: [ {
+    position: 10 ,
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 10
+  } ]
+  @UI.selectionField: [{ position: 10 }]
+  @Consumption.valueHelpDefinition: [ {entity: {name: 'ZSD_SLS_GIFTCARDVH', element: 'Giftcardnumber' }} ]
+  Giftcardnumber;
+
+  @UI.lineItem: [ {
+    position: 20 ,
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 20
+  } ]
+  SapDescription;
+
+  @UI.lineItem: [ {
+    position: 30 ,
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 30
+  } ]
+  AmountV;
+
+  @Consumption.valueHelpDefinition: [ {entity: {name: 'I_CurrencyStdVH', element: 'Currency' }} ]
+  AmountC;
+
+  @UI.hidden: true
+  Lastchangedat;
+}

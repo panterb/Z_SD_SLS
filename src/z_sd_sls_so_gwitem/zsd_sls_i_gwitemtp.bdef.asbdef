@@ -1,0 +1,44 @@
+managed implementation in class ZCL_SD_SLS_GWITEM unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZSD_SLS_I_GWITEMTP alias GoodwillItem
+persistent table zsd_sls_gwitem
+draft table zsdslsgwitem_d
+etag master Locallastchangedat
+lock master total etag Lastchangedat
+authorization master ( global )
+
+{
+  field ( readonly )
+  SapUUID,
+  Lastchangedat,
+  Lastchangedby,
+  Locallastchangedat;
+
+  field ( numbering : managed )
+  SapUUID;
+
+
+  create;
+  update;
+  delete;
+
+  validation validateProduct on save { field Product; }
+
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare{validation validateProduct;}
+  mapping for zsd_sls_gwitem
+    {
+      SapUUID                = SAP_UUID;
+      Customerclassification = CUSTOMERCLASSIFICATION;
+      Product                = PRODUCT;
+      Locallastchangedat     = LOCALLASTCHANGEDAT;
+      Lastchangedat          = LASTCHANGEDAT;
+      Lastchangedby          = LASTCHANGEDBY;
+    }
+
+}

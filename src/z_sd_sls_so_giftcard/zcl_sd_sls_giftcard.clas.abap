@@ -1,0 +1,5 @@
+CLASS zcl_sd_sls_giftcard DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zsd_sls_i_giftcardtp.
+ENDCLASS.
+
+CLASS zcl_sd_sls_giftcard IMPLEMENTATION.
+ENDCLASS.

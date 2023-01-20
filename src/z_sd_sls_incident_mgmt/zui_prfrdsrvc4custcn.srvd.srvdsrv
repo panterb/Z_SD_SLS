@@ -1,0 +1,4 @@
+define service ZUI_PRFRDSRVC4CUSTCN {
+  expose ZC_PRFRDSRVC4CUSTCN_S as PreferredServiceAll;
+  expose ZC_PRFRDSRVC4CUSTCN as PRFRDSRVC4CUSTCN;
+}

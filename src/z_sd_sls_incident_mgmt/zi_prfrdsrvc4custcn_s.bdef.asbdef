@@ -1,0 +1,70 @@
+managed with additional save implementation in class ZBP_I_PRFRDSRVC4CUSTCN_S unique;
+strict;
+with draft;
+
+define behavior for ZI_PRFRDSRVC4CUSTCN_S alias PreferredServiceAll
+draft table ZSDPRSRV4CUS_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _PRFRDSRVC4CUSTCN { create ( features : instance ); with draft; }
+}
+
+define behavior for ZI_PRFRDSRVC4CUSTCN alias PRFRDSRVC4CUSTCN
+persistent table ZSDPRSRV4CUSTCN
+draft table ZSDPRSRV4CUSTC_D
+etag master Locallastchangedat
+lock dependent by _PreferredServiceAll
+authorization dependent by _PreferredServiceAll
+
+{
+  field ( mandatory : create )
+   Customerclassification,
+   Prfrdsrvc;
+
+  field ( readonly )
+   SingletonID,
+   Locallastchangedat,
+   Lastchangedat,
+   Lastchangedby;
+
+  field ( readonly : update )
+   Customerclassification,
+   Prfrdsrvc;
+
+
+  update( features : global );
+  delete( features : global );
+
+  factory action ( features : instance ) CopyPRFRDSRVC4CUSTCN parameter ZD_CopyPRFRDSRVC4CUSTCN [1];
+
+  mapping for ZSDPRSRV4CUSTCN
+  {
+    Customerclassification = CUSTOMERCLASSIFICATION;
+    Prfrdsrvc = PRFRDSRVC;
+    Locallastchangedat = LOCALLASTCHANGEDAT;
+    Lastchangedat = LASTCHANGEDAT;
+    Lastchangedby = LASTCHANGEDBY;
+  }
+
+  association _PreferredServiceAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+}

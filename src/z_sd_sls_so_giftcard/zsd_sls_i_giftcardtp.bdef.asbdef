@@ -1,0 +1,38 @@
+managed implementation in class ZCL_SD_SLS_GIFTCARD unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZSD_SLS_I_GIFTCARDTP alias GiftCard
+persistent table zsd_sls_giftcard
+draft table ZSDSLSGIFTCARD_D
+authorization master( global )
+lock master total etag Lastchangedat
+
+{
+  field ( readonly )
+   SapUUID;
+
+  field ( numbering : managed )
+   SapUUID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZSD_SLS_GIFTCARD
+  {
+    SapUUID = SAP_UUID;
+    Giftcardnumber = GIFTCARDNUMBER;
+    SapDescription = SAP_DESCRIPTION;
+    AmountV = AMOUNT_V;
+    AmountC = AMOUNT_C;
+    Lastchangedat = LASTCHANGEDAT;
+  }
+}

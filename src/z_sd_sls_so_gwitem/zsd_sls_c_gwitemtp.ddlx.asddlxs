@@ -1,0 +1,50 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'Goodwill Item',
+    typeNamePlural: 'Goodwill Items'
+  }
+}
+annotate view ZSD_SLS_C_GWITEMTP with
+{
+  @UI.facet: [ {
+    id: 'idIdentification',
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'Goodwill Item',
+    position: 10
+  } ]
+  @UI.hidden: true
+  sapuuid;
+
+  @UI.selectionField: [{ position: 10 }]
+  @UI.lineItem: [ {
+    position: 10 ,
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 10  } ]
+  @Consumption.valueHelpDefinition: [{
+       entity: { name:    'I_CustomerClassification',
+                 element: 'CustomerClassification' }
+  }]
+  customerclassification;
+
+  @UI.selectionField: [{ position: 20  }]
+  @UI.lineItem: [ {
+    position: 20 ,
+    importance: #MEDIUM,
+    label: 'Product'
+  } ]
+  @UI.identification: [ {
+    position: 20 ,
+    label: 'Product'  } ]
+  @Consumption.valueHelpDefinition: [{
+        entity: { name:    'I_ProductStdVH',
+                  element: 'Product' }
+   }]
+  @EndUserText.label: 'Product'
+  product;
+
+  @UI.hidden: true
+  locallastchangedat;
+}

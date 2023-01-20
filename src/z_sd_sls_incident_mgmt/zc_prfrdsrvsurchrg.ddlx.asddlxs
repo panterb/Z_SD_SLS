@@ -1,0 +1,54 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'PrfrdSrvSurchrg', 
+    typeNamePlural: 'PrfrdSrvSurchrgs', 
+    title: {
+      type: #STANDARD, 
+      label: 'Preferred Service Surcharge', 
+      value: 'Prfrdsrvc'
+    }
+  }
+}
+annotate view ZC_PrfrdSrvSurchrg with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'CopyPrfrdSrvSurchrg', 
+    label: 'Copy Selected Entry'
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_PrfrdSrvSurchrg', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Preferred Service Surcharge', 
+    position: 1 
+  } ]
+  Prfrdsrvc;
+  
+  @UI.identification: [ {
+    position: 2 , 
+    label: 'Surcharge %'
+  } ]
+  @UI.lineItem: [ {
+    position: 2 , 
+    label: 'Surcharge %'
+  } ]
+  Surchrg;
+  
+  @UI.identification: [ {
+    position: 3 
+  } ]
+  Lastchangedat;
+  
+  @UI.identification: [ {
+    position: 4 
+  } ]
+  Lastchangedby;
+}
